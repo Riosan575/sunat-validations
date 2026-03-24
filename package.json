@@ -1,0 +1,88 @@
+{
+  "name": "sunat-validations",
+  "version": "1.0.0",
+  "description": "Librería robusta para validaciones de facturación electrónica SUNAT Perú - Catálogos, Tributos, Documentos y Cálculos de Impuestos UBL 2.1",
+  "author": "Tu Nombre <tu@email.com>",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./catalogs": {
+      "types": "./dist/catalogs/index.d.ts",
+      "import": "./dist/catalogs/index.js",
+      "require": "./dist/catalogs/index.cjs"
+    },
+    "./documents": {
+      "types": "./dist/documents/index.d.ts",
+      "import": "./dist/documents/index.js",
+      "require": "./dist/documents/index.cjs"
+    },
+    "./taxes": {
+      "types": "./dist/taxes/index.d.ts",
+      "import": "./dist/taxes/index.js",
+      "require": "./dist/taxes/index.cjs"
+    },
+    "./utils": {
+      "types": "./dist/utils/index.d.ts",
+      "import": "./dist/utils/index.js",
+      "require": "./dist/utils/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "keywords": [
+    "sunat",
+    "peru",
+    "facturacion-electronica",
+    "ubl",
+    "ubl-2.1",
+    "igv",
+    "tax-validation",
+    "ruc",
+    "dni",
+    "peruvian-tax",
+    "invoice",
+    "comprobante-electronico",
+    "catalogo-05",
+    "catalogo-07"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src --ext .ts",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build && npm run test",
+    "release": "npm version patch && npm publish"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Riosan575/sunat-validations.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Riosan575/sunat-validations/issues"
+  },
+  "homepage": "https://github.com/Riosan575/sunat-validations#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
