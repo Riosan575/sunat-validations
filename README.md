@@ -49,13 +49,15 @@ pnpm add sunat-validations
 ### Importación
 
 ```typescript
-// Importar todo
-import { validateRuc, calculateTax, isValidAffectionCode } from 'sunat-validations'
-
-// Importar por módulo (tree-shaking)
-import { validateRuc } from 'sunat-validations/documents'
-import { calculateTax } from 'sunat-validations/taxes'
-import { CATALOG_05, CATALOG_07 } from 'sunat-validations/catalogs'
+// Importar todo lo que necesitas desde el paquete principal
+import { 
+  validateRuc, 
+  calculateTax, 
+  isValidAffectionCode,
+  CATALOG_05,
+  CATALOG_07,
+  getIdentityDocument
+} from 'sunat-validations'
 ```
 
 ### Validación de RUC
@@ -435,16 +437,14 @@ import type {
 
 ### Tree-shaking
 
-La librería soporta tree-shaking. Importa solo lo que necesitas:
+La librería soporta tree-shaking. Importa solo lo que necesitas y el bundler eliminará el código no utilizado:
 
 ```typescript
-// ✅ Bueno - Solo importa lo necesario
-import { validateRuc } from 'sunat-validations'
+// ✅ Importa solo lo necesario - tree-shaking automático
+import { validateRuc, calculateTax, CATALOG_05 } from 'sunat-validations'
 
-// ✅ También bueno - Importar desde subpath
-import { calculateTax } from 'sunat-validations/taxes'
-import { validateRuc } from 'sunat-validations/documents'
-import { CATALOG_05 } from 'sunat-validations/catalogs'
+// ❌ No recomendado - Importa todo con namespace
+import * as sunat from 'sunat-validations'
 ```
 
 ---
@@ -644,15 +644,11 @@ roundBankers(3.5, 0) // 4 (redondea al par)
 
 **Solución:**
 ```typescript
-// ❌ Importa toda la librería
-import sunat from 'sunat-validations'
+// ❌ Importa toda la librería con namespace
+import * as sunat from 'sunat-validations'
 
-// ✅ Importa solo lo necesario (tree-shaking)
-import { validateRuc } from 'sunat-validations'
-
-// ✅ O desde subpath
-import { validateRuc } from 'sunat-validations/documents'
-import { calculateTax } from 'sunat-validations/taxes'
+// ✅ Importa solo lo necesario (tree-shaking automático)
+import { validateRuc, calculateTax } from 'sunat-validations'
 ```
 
 ### Error: "Los decimales del DNI/RUC no coinciden"
