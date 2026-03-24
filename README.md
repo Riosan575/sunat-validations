@@ -49,15 +49,19 @@ pnpm add sunat-validations
 ### Importación
 
 ```typescript
-// Importar todo lo que necesitas desde el paquete principal
-import { 
-  validateRuc, 
-  calculateTax, 
-  isValidAffectionCode,
-  CATALOG_05,
-  CATALOG_07,
-  getIdentityDocument
-} from 'sunat-validations'
+// Importar funciones específicas
+import { validateRuc, calculateTax, isValidAffectionCode } from 'sunat-validations'
+
+// Importar catálogos con nombres cortos
+import { TAXES, IGV_TYPES, IDENTITY_DOCUMENTS } from 'sunat-validations'
+
+// Ejemplo: Acceder a los datos de tributos
+const igv = TAXES.find(t => t.code === '1000')
+console.log(igv.name) // 'IGV'
+
+// Ejemplo: Acceder a los tipos de afectación IGV
+const gravado = IGV_TYPES['10']
+console.log(gravado.description) // 'Gravado - Operación Onerosa'
 ```
 
 ### Validación de RUC
@@ -441,7 +445,7 @@ La librería soporta tree-shaking. Importa solo lo que necesitas y el bundler el
 
 ```typescript
 // ✅ Importa solo lo necesario - tree-shaking automático
-import { validateRuc, calculateTax, CATALOG_05 } from 'sunat-validations'
+import { validateRuc, calculateTax, TAXES } from 'sunat-validations'
 
 // ❌ No recomendado - Importa todo con namespace
 import * as sunat from 'sunat-validations'
@@ -577,14 +581,13 @@ if (!result.isValid) {
 
 **Solución:**
 ```typescript
-import { isValidAffectionCode, CATALOG_07 } from 'sunat-validations'
+import { isValidAffectionCode, IGV_TYPES } from 'sunat-validations'
 
 // Verificar si el código es válido
 const codigo = '99'
 if (!isValidAffectionCode(codigo)) {
-  console.log('Código inválido. Códigos válidos:', Object.keys(CATALOG_07))
+  console.log('Código inválido. Códigos válidos:', Object.keys(IGV_TYPES))
 }
-
 // Códigos válidos: 10, 11, 12, 13, 14, 15, 16, 17, 20, 21, 30, 31, 32, 33, 34, 35, 36, 37, 40
 ```
 

@@ -471,3 +471,6 @@ export function validateAffectionCode(code: string): {
   const affection = getAffectionByCode(code)
   return { isValid: true, affection }
 }
+
+/** Alias for CATALOG_07 - More intuitive name */
+export const IGV_TYPES = CATALOG_07

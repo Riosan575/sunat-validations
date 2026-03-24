@@ -35,6 +35,7 @@
 // Catálogo 05 - Tributos
 export {
   CATALOG_05,
+  TAXES,
   TAX_BY_CODE,
   VALID_TAX_CODES,
   TAX_TO_UNECE_5153,
@@ -55,6 +56,7 @@ export {
 // Catálogo 07 - Afectación IGV
 export {
   CATALOG_07,
+  IGV_TYPES,
   AFFECTION_BY_CODE,
   VALID_AFFECTION_CODES,
   GRAVADO_CODES,

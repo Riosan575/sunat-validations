@@ -279,3 +279,6 @@ export function validateTaxCode(code: string): {
   const tax = getTaxByCode(code)
   return { isValid: true, tax }
 }
+
+/** Alias for CATALOG_05 - More intuitive name */
+export const TAXES = CATALOG_05
