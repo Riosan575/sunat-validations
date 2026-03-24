@@ -1,8 +1,8 @@
 {
   "name": "sunat-validations",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Librería robusta para validaciones de facturación electrónica SUNAT Perú - Catálogos, Tributos, Documentos y Cálculos de Impuestos UBL 2.1",
-  "author": "Tu Nombre <tu@email.com>",
+  "author": "Riosan <riosan222@gmail.com>",
   "license": "MIT",
   "type": "module",
   "main": "./dist/index.cjs",
